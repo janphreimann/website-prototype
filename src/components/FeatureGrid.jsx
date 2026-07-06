@@ -34,15 +34,22 @@ function RiveCardInner({ src, label, className }) {
     src,
     stateMachines: STATE_MACHINE,
     autoplay: true,
+    // the hover state lives in a data-bound view model ("ViewModel1"), not in
+    // state machine inputs — autoBind attaches its default instance
+    autoBind: true,
     layout: new Layout({ fit: Fit.Cover, alignment: Alignment.Center }),
   })
 
-  const setHover = (value) => {
+  // some artboard instances default to dark mode — force the light variant
+  useEffect(() => {
     if (!rive) return
-    const inputs = rive.stateMachineInputs(STATE_MACHINE) || []
-    for (const input of inputs) {
-      if (/hover/i.test(input.name)) input.value = value
-    }
+    const darkMode = rive.viewModelInstance?.boolean('darkMode')
+    if (darkMode) darkMode.value = false
+  }, [rive])
+
+  const setHover = (value) => {
+    const ishover = rive?.viewModelInstance?.boolean('ishover')
+    if (ishover) ishover.value = value
   }
 
   return (
