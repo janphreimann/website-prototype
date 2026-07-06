@@ -1,13 +1,51 @@
+import { useEffect, useRef } from 'react'
 import SectionHeading, { BlackButton } from './SectionHeading.jsx'
 
-/* decorative curved green lines (static svg) */
+/* decorative curved green lines, weaving like the hero animation */
+const N_CURVES = 12
+const CURVE_PERIOD = 14 // seconds, same cadence as the hero canvas
+const CURVE_PHASE_STEP = (2 * Math.PI) / N_CURVES
+
+// two shapes per line; each line oscillates between them with a phase offset
+const curveShape = (i, g) => {
+  const lerp = (a, b) => a + (b - a) * g
+  const y0 = lerp(20 + i * 8, 42 + i * 6)
+  const c1x = lerp(200, 165)
+  const c1y = lerp(60 + i * 14, 115 + i * 9)
+  const c2x = lerp(350, 385)
+  const c2y = lerp(220 - i * 6, 168 - i * 11)
+  const y1 = lerp(150 + i * 4, 126 + i * 7)
+  return `M0 ${y0} C ${c1x} ${c1y}, ${c2x} ${c2y}, 600 ${y1}`
+}
+
 function Curves({ className, flip = false }) {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const svg = ref.current
+    if (!svg || matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const paths = svg.querySelectorAll('path')
+    let rafId = 0
+    const t0 = performance.now()
+
+    const frame = (now) => {
+      const t = (now - t0) / 1000
+      for (let i = 0; i < paths.length; i++) {
+        const g = 0.5 + 0.5 * Math.sin((2 * Math.PI * t) / CURVE_PERIOD + CURVE_PHASE_STEP * i)
+        paths[i].setAttribute('d', curveShape(i, g))
+      }
+      rafId = requestAnimationFrame(frame)
+    }
+    rafId = requestAnimationFrame(frame)
+    return () => cancelAnimationFrame(rafId)
+  }, [])
+
   return (
-    <svg viewBox="0 0 600 300" fill="none" className={`${className} ${flip ? '-scale-x-100' : ''}`}>
-      {Array.from({ length: 12 }).map((_, i) => (
+    <svg ref={ref} viewBox="0 0 600 300" fill="none" className={`${className} ${flip ? '-scale-x-100' : ''}`}>
+      {Array.from({ length: N_CURVES }).map((_, i) => (
         <path
           key={i}
-          d={`M0 ${20 + i * 8} C 200 ${60 + i * 14}, 350 ${220 - i * 6}, 600 ${150 + i * 4}`}
+          d={curveShape(i, 0.5)}
           stroke={`rgba(${31 + i * 12},${227 - i * 2},${148 - i * 8},${0.55 - i * 0.03})`}
           strokeWidth="1"
         />
