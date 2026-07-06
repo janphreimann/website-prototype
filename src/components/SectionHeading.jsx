@@ -24,11 +24,12 @@ export function BlackButton({ children }) {
   )
 }
 
-export function ArrowButton({ dir = 'right', onClick }) {
+export function ArrowButton({ dir = 'right', onClick, disabled = false }) {
   return (
     <button
       onClick={onClick}
-      className="flex size-9 items-center justify-center rounded border border-line bg-white text-gray-400 transition-colors hover:bg-gray-50 hover:text-ink"
+      disabled={disabled}
+      className="flex size-9 items-center justify-center rounded border border-line bg-white text-gray-400 transition-colors hover:bg-gray-50 hover:text-ink disabled:cursor-default disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-gray-400"
     >
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`size-3.5 ${dir === 'left' ? 'rotate-180' : ''}`}>
         <path d="m9 18 6-6-6-6" />

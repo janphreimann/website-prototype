@@ -83,8 +83,7 @@ export default function FeatureGrid() {
         {/* row 1 */}
         <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
           <Card label="Agent-native platform" className="min-h-[360px]">
-            <Curves className="absolute inset-x-0 top-0 h-3/5 w-full" />
-            <Curves className="absolute inset-x-0 bottom-0 h-3/5 w-full" flip />
+            <Curves className="absolute inset-0 h-full w-full" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex w-96 max-w-[85%] items-center gap-3 rounded-full border border-line bg-white px-5 py-4 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.12)]">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#1fe394" strokeWidth="2" className="size-4"><path d="M12 3l1.9 5.7L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.3L12 3z" /></svg>

@@ -31,7 +31,7 @@ const STATS = [
 
 export default function ScaleStats() {
   return (
-    <section className="bg-white py-24">
+    <section className="border-t border-line bg-white py-24">
       <div className="mx-auto max-w-[1225px] px-4">
         <SectionHeading
           line1="Built to scale with the agent web."

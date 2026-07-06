@@ -15,18 +15,22 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main>
-        <Hero />
-        <LogoWall />
-        <StatsTicker />
-        <FeatureGrid />
-        <Enterprise />
-        <ScaleStats />
-        <Startups />
-        <Testimonials />
-        <Blog />
-        <CTA />
-      </main>
+      {/* clip carousel overflow so peeking cards never create a horizontal scrollbar */}
+      <div className="overflow-x-clip">
+        {/* thin gray frame lines constraining the content, like on mintlify.com */}
+        <main className="mx-auto max-w-[1225px] border-x border-line">
+          <Hero />
+          <LogoWall />
+          <StatsTicker />
+          <FeatureGrid />
+          <Enterprise />
+          <ScaleStats />
+          <Startups />
+          <Testimonials />
+          <Blog />
+          <CTA />
+        </main>
+      </div>
       <Footer />
     </div>
   )

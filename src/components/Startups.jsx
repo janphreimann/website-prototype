@@ -51,7 +51,7 @@ export default function Startups() {
   const scrollBy = (dir) => trackRef.current?.scrollBy({ left: dir * 640, behavior: 'smooth' })
 
   return (
-    <section className="bg-white py-24">
+    <section className="border-t border-line bg-white py-24">
       <div className="mx-auto max-w-[1225px] px-4">
         <SectionHeading
           line1="Enabling the next generation of startups."
@@ -63,7 +63,7 @@ export default function Startups() {
         </SectionHeading>
       </div>
 
-      <div ref={trackRef} className="no-scrollbar flex snap-x gap-4 overflow-x-auto px-[max(1rem,calc((100vw-1193px)/2))]">
+      <div ref={trackRef} className="no-scrollbar flex snap-x gap-4 overflow-x-auto px-4">
         {CARDS.map((c) => (
           <div key={c.name} className="w-[298px] shrink-0 snap-start">
             <div

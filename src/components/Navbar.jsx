@@ -253,7 +253,7 @@ export default function Navbar() {
   }, [visible])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-white">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-white">
       <div onMouseLeave={scheduleClose}>
         <nav className="relative mx-auto flex h-14 max-w-[1225px] items-center px-4">
           {/* logo */}

@@ -56,7 +56,7 @@ const QUOTES = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-white py-24">
+    <section className="border-t border-line bg-white py-24">
       <div className="mx-auto max-w-[1225px] px-4">
         <SectionHeading line1="Trusted by teams building for agents." line2="">
           <BlackButton>Read more</BlackButton>
