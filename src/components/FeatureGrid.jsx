@@ -3,7 +3,7 @@ import SectionHeading, { BlackButton } from './SectionHeading.jsx'
 
 /* decorative curved green lines, weaving like the hero animation */
 const N_CURVES = 12
-const CURVE_PERIOD = 14 // seconds, same cadence as the hero canvas
+const CURVE_PERIOD = 7 // seconds
 const CURVE_PHASE_STEP = (2 * Math.PI) / N_CURVES
 
 // two shapes per line; each line oscillates between them with a phase offset
@@ -41,7 +41,7 @@ function Curves({ className, flip = false }) {
   }, [])
 
   return (
-    <svg ref={ref} viewBox="0 0 600 300" fill="none" className={`${className} ${flip ? '-scale-x-100' : ''}`}>
+    <svg ref={ref} viewBox="0 0 600 300" preserveAspectRatio="none" fill="none" className={`${className} ${flip ? '-scale-x-100' : ''}`}>
       {Array.from({ length: N_CURVES }).map((_, i) => (
         <path
           key={i}
@@ -83,8 +83,8 @@ export default function FeatureGrid() {
         {/* row 1 */}
         <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
           <Card label="Agent-native platform" className="min-h-[360px]">
-            <Curves className="absolute left-0 top-6 h-56 w-2/3" />
-            <Curves className="absolute bottom-2 right-0 h-44 w-2/3" flip />
+            <Curves className="absolute inset-x-0 top-0 h-3/5 w-full" />
+            <Curves className="absolute inset-x-0 bottom-0 h-3/5 w-full" flip />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="flex w-96 max-w-[85%] items-center gap-3 rounded-full border border-line bg-white px-5 py-4 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.12)]">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#1fe394" strokeWidth="2" className="size-4"><path d="M12 3l1.9 5.7L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.3L12 3z" /></svg>
@@ -138,7 +138,7 @@ export default function FeatureGrid() {
           </Card>
 
           <Card label="Connect with your systems" className="min-h-[300px]">
-            <Curves className="absolute left-0 top-1/3 h-40 w-full" />
+            <Curves className="absolute inset-0 h-full w-full" />
             <div className="absolute inset-0 flex items-center justify-center gap-3">
               {['✳', '◫', '⬡'].map((g, i) => (
                 <span key={i} className="flex size-14 items-center justify-center rounded-xl border border-line bg-white text-xl shadow-[0_8px_20px_-8px_rgba(0,0,0,0.15)]">
@@ -172,8 +172,8 @@ export default function FeatureGrid() {
         {/* row 3 */}
         <div className="mt-4">
           <Card label="Build on top of your existing setup" className="min-h-[360px]">
-            <Curves className="absolute left-0 top-8 h-64 w-1/3" />
-            <Curves className="absolute right-0 top-16 h-56 w-1/3" flip />
+            <Curves className="absolute left-0 top-0 h-full w-1/2" />
+            <Curves className="absolute right-0 top-0 h-full w-1/2" flip />
             <div className="absolute inset-x-0 top-9 mx-auto w-[58%] rounded-t-lg border border-line bg-white p-5 shadow-[0_15px_40px_-15px_rgba(0,0,0,0.12)]">
               <div className="flex gap-5">
                 <div className="w-1/3 space-y-2.5">

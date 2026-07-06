@@ -1,0 +1,11 @@
+# Alle Textdateien: im Repo mit LF gespeichert, in der Working Copy immer CRLF (Windows-Standard)
+* text=auto eol=crlf
+
+# Binärdateien nicht anfassen
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
