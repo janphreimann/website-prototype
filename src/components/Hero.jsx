@@ -13,7 +13,14 @@ export default function Hero() {
   return (
     <section className="relative overflow-x-clip bg-white pt-14">
       {/* animated woven-lines background — spans nearly the full viewport (max 1920px), like the original */}
-      <div className="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-full max-w-[1920px] -translate-x-1/2">
+      <div
+        className="pointer-events-none absolute inset-y-0 left-1/2 z-0 w-full max-w-[1920px] -translate-x-1/2"
+        style={{
+          // the woven lines run past the right canvas edge; mask them out softly like the left side
+          WebkitMaskImage: 'linear-gradient(to right, black 78%, transparent 99%)',
+          maskImage: 'linear-gradient(to right, black 78%, transparent 99%)',
+        }}
+      >
         <HeroAnimation />
       </div>
 

@@ -2,7 +2,8 @@
 export default function SectionHeading({ line1, line2, children }) {
   return (
     <div className="relative mb-12 flex items-end justify-between gap-8">
-      <span className="absolute -left-10 top-1.5 h-7 w-[3px] bg-mint-400 max-xl:hidden" />
+      {/* sits exactly on the frame's border-x line: 16px section padding + 1px border */}
+      <span aria-hidden="true" className="absolute -left-[17px] top-1.5 h-6 w-[2px] bg-mint-400 max-xl:hidden" />
       <h2 className="max-w-2xl text-[28px] font-medium leading-9 tracking-tight">
         <span className="text-ink">{line1}</span>{' '}
         <span className="text-gray-400">{line2}</span>
