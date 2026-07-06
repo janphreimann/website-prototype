@@ -65,32 +65,39 @@ export default function Startups() {
 
       <div ref={trackRef} className="no-scrollbar flex snap-x gap-4 overflow-x-auto px-4">
         {CARDS.map((c) => (
-          <div key={c.name} className="w-[298px] shrink-0 snap-start">
-            <div
-              className="relative flex h-[340px] items-center justify-center overflow-hidden rounded-xl"
-              style={{ background: c.bg }}
-            >
-              {/* subtle line texture */}
-              <svg viewBox="0 0 300 340" className="absolute inset-0 h-full w-full opacity-25" fill="none">
-                {Array.from({ length: 10 }).map((_, i) => (
-                  <path
-                    key={i}
-                    d={`M-20 ${320 - i * 10} C 80 ${240 - i * 16}, 180 ${140 + i * 8}, 320 ${20 + i * 12}`}
-                    stroke="rgba(255,255,255,0.55)"
-                    strokeWidth="1"
-                  />
-                ))}
-              </svg>
-              <div className="flex size-[88px] items-center justify-center rounded-2xl bg-white shadow-[0_15px_40px_-10px_rgba(0,0,0,0.35)]">
-                {c.tile}
+          <a href="#" key={c.name} className="group block w-[298px] shrink-0 snap-start">
+            <div className="relative h-[340px] overflow-hidden rounded-xl">
+              <div
+                className="absolute inset-0 flex items-center justify-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                style={{ background: c.bg }}
+              >
+                {/* subtle line texture */}
+                <svg viewBox="0 0 300 340" className="absolute inset-0 h-full w-full opacity-25" fill="none">
+                  {Array.from({ length: 10 }).map((_, i) => (
+                    <path
+                      key={i}
+                      d={`M-20 ${320 - i * 10} C 80 ${240 - i * 16}, 180 ${140 + i * 8}, 320 ${20 + i * 12}`}
+                      stroke="rgba(255,255,255,0.55)"
+                      strokeWidth="1"
+                    />
+                  ))}
+                </svg>
+                <div className="relative flex size-[88px] items-center justify-center rounded-2xl bg-white shadow-[0_15px_40px_-10px_rgba(0,0,0,0.35)]">
+                  {c.tile}
+                </div>
               </div>
             </div>
             <p className="mt-4 text-[13.5px] leading-5 text-gray-600">{c.desc}</p>
-            <a href="#" className="mt-2.5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-mint-600 transition-colors hover:text-mint-500">
+            <span className="mt-2.5 inline-flex items-center gap-1.5 text-[13.5px] font-medium text-mint-600 transition-colors group-hover:text-mint-500">
               Read {c.name}'s story
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="size-3"><path d="m9 18 6-6-6-6" /></svg>
-            </a>
-          </div>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="size-4 opacity-50 transition-opacity duration-150 ease-out group-hover:opacity-100 motion-reduce:transition-none">
+                <g className="transition-[transform,translate] duration-150 ease-out group-hover:translate-x-0.5 motion-reduce:transition-none">
+                  <path d="M2.5 8H10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="opacity-0 transition-opacity duration-150 ease-out group-hover:opacity-100 motion-reduce:transition-none" />
+                  <path d="M7 4.5L10.5 8 7 11.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </g>
+              </svg>
+            </span>
+          </a>
         ))}
       </div>
     </section>
