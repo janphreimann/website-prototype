@@ -16,10 +16,11 @@ export default function App() {
     <div className="min-h-screen bg-white">
       <Navbar />
       {/* clip carousel overflow so peeking cards never create a horizontal scrollbar */}
-      <div className="overflow-x-clip">
-        {/* thin gray frame lines constraining the content, like on mintlify.com */}
-        <main className="mx-auto max-w-[1225px] border-x border-line">
-          <Hero />
+      <main className="overflow-x-clip">
+        {/* hero runs full-bleed, outside the framed area — like on mintlify.com */}
+        <Hero />
+        {/* thin gray frame lines only start at the logo wall section */}
+        <div className="mx-auto max-w-[1225px] border-x border-line">
           <LogoWall />
           <StatsTicker />
           <FeatureGrid />
@@ -29,8 +30,8 @@ export default function App() {
           <Testimonials />
           <Blog />
           <CTA />
-        </main>
-      </div>
+        </div>
+      </main>
       <Footer />
     </div>
   )
