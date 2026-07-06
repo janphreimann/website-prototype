@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-mint-50: #e9fbf3;
+  --color-mint-100: #d3f7e6;
+  --color-mint-400: #1fe394;
+  --color-mint-500: #17c07c;
+  --color-mint-600: #0d9e65;
+  --color-cream: #faf9f5;
+  --color-cream-dark: #f5f4ee;
+  --color-ink: #0a0a0a;
+  --color-line: #e9e8e3;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* headline serif */
+.font-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+/* stat ticker marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* hide scrollbars on carousels */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
