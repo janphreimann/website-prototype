@@ -87,7 +87,7 @@ export default function Blog() {
     <section className="border-t border-line bg-white py-24">
       <div className="mx-auto max-w-[1225px] px-4">
         <SectionHeading line1="Latest updates" line2="">
-          <BlackButton>All posts</BlackButton>
+          <BlackButton href="/blog">All posts</BlackButton>
         </SectionHeading>
 
         <div className="grid gap-5 md:grid-cols-3">

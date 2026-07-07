@@ -60,24 +60,24 @@ const MENUS = {
       {
         title: 'Features',
         items: [
-          { icon: 'book', label: 'Platform', desc: 'Agent-native platform' },
-          { icon: 'pen', label: 'Editor', desc: 'Visual WYSIWYG editor' },
-          { icon: 'shield', label: 'Authentication', desc: 'Secure public doc access' },
+          { icon: 'book', label: 'Platform', desc: 'Agent-native platform', href: '/docs/what-is-mintlify' },
+          { icon: 'pen', label: 'Editor', desc: 'Visual WYSIWYG editor', href: '/docs/editor' },
+          { icon: 'shield', label: 'Authentication', desc: 'Secure public doc access', href: '/docs/deploy/authentication-setup' },
         ],
       },
       {
         title: 'Automations',
         items: [
-          { icon: 'workflow', label: 'Automations', desc: 'Automate actions across systems' },
-          { icon: 'bot', label: 'Agent', desc: 'Autonomous agents for every task' },
-          { icon: 'sparkle', label: 'Assistant', desc: 'Instant answers powered by AI' },
+          { icon: 'workflow', label: 'Automations', desc: 'Automate actions across systems', href: '/docs/automations' },
+          { icon: 'bot', label: 'Agent', desc: 'Autonomous agents for every task', href: '/docs/agent' },
+          { icon: 'sparkle', label: 'Assistant', desc: 'Instant answers powered by AI', href: '/docs/assistant' },
         ],
       },
       {
         title: 'Integrations',
         items: [
-          { icon: 'plug', label: 'Connections', desc: 'Connect tools and data sources' },
-          { icon: 'server', label: 'MCP server', desc: 'Fully managed MCP servers' },
+          { icon: 'plug', label: 'Connections', desc: 'Connect tools and data sources', href: '/docs/integrations/analytics/overview' },
+          { icon: 'server', label: 'MCP server', desc: 'Fully managed MCP servers', href: '/docs/ai/model-context-protocol' },
         ],
       },
     ],
@@ -92,17 +92,17 @@ const MENUS = {
       {
         title: 'By stage',
         items: [
-          { icon: 'building', label: 'Enterprise' },
-          { icon: 'rocket', label: 'Startups' },
+          { icon: 'building', label: 'Enterprise', href: '/enterprise' },
+          { icon: 'rocket', label: 'Startups', href: '/startups' },
         ],
       },
       {
         title: 'By use case',
         items: [
-          { icon: 'fileText', label: 'Developer documentation' },
-          { icon: 'db', label: 'Knowledge base' },
-          { icon: 'braces', label: 'API reference' },
-          { icon: 'help', label: 'Help centers' },
+          { icon: 'fileText', label: 'Developer documentation', href: '/docs/guides/developer-documentation' },
+          { icon: 'db', label: 'Knowledge base', href: '/docs/guides/knowledge-base' },
+          { icon: 'braces', label: 'API reference', href: '/docs/api-playground/overview' },
+          { icon: 'help', label: 'Help centers', href: '/docs/guides/help-center' },
           { icon: 'layout', label: 'CMS' },
         ],
       },
@@ -129,25 +129,25 @@ const MENUS = {
       {
         title: 'Documentation',
         items: [
-          { icon: 'bookOpen', label: 'Getting started' },
-          { icon: 'cpu', label: 'Components' },
-          { icon: 'braces', label: 'API Reference' },
-          { icon: 'clock', label: 'Changelog' },
+          { icon: 'bookOpen', label: 'Getting started', href: '/docs' },
+          { icon: 'cpu', label: 'Components', href: '/docs/components' },
+          { icon: 'braces', label: 'API Reference', href: '/docs/api/introduction' },
+          { icon: 'clock', label: 'Changelog', href: '/docs/guides' },
         ],
       },
       {
         title: 'Company',
         items: [
-          { icon: 'newspaper', label: 'Blog' },
+          { icon: 'newspaper', label: 'Blog', href: '/blog' },
           { icon: 'gradCap', label: 'University' },
-          { icon: 'user', label: 'Careers' },
+          { icon: 'user', label: 'Careers', href: '/careers' },
           { icon: 'calendar', label: 'Events' },
         ],
       },
       {
         title: 'Customers',
         items: [
-          { icon: 'quote', label: 'Customer stories' },
+          { icon: 'quote', label: 'Customer stories', href: '/customers' },
           { icon: 'heart', label: 'Wall of love' },
         ],
       },
@@ -155,8 +155,8 @@ const MENUS = {
         title: 'Getting started',
         items: [
           { icon: 'book', label: 'Wiki' },
-          { icon: 'gauge', label: 'Agent score' },
-          { icon: 'toggle', label: 'Switch' },
+          { icon: 'gauge', label: 'Agent score', href: '/score' },
+          { icon: 'toggle', label: 'Switch', href: '/switch' },
         ],
       },
     ],
@@ -167,7 +167,7 @@ const MENUS = {
 /* ---------- dropdown item ---------- */
 function MenuItem({ item }) {
   return (
-    <a href="#" className="group flex items-start gap-2.5 rounded-lg p-1.5 -mx-1.5 transition-colors duration-200 hover:bg-gray-50">
+    <a href={item.href || '#'} className="group flex items-start gap-2.5 rounded-lg p-1.5 -mx-1.5 transition-colors duration-200 hover:bg-gray-50">
       <span className="mt-px flex size-6 shrink-0 items-center justify-center rounded-md border border-line bg-white text-gray-700 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
         <Icon name={item.icon} />
       </span>
@@ -205,7 +205,7 @@ function PanelContent({ menu }) {
             </span>
           </div>
           <p className="mt-4 text-[13px] leading-5 text-gray-700">{menu.card.text}</p>
-          <a href="#" className="mt-3 inline-flex items-center gap-1 text-[13px] font-medium text-ink hover:text-gray-600">
+          <a href="/customers" className="mt-3 inline-flex items-center gap-1 text-[13px] font-medium text-ink hover:text-gray-600">
             Read story
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="size-3"><path d="m9 18 6-6-6-6" /></svg>
           </a>
@@ -279,7 +279,7 @@ export default function Navbar() {
               </button>
             ))}
             <a
-              href="#"
+              href="/pricing"
               onMouseEnter={scheduleClose}
               className="rounded-lg px-3 py-1.5 text-[13.5px] font-medium text-gray-800 transition-colors duration-200 hover:bg-gray-100"
             >
@@ -292,7 +292,7 @@ export default function Navbar() {
             <a href="#" className="rounded border border-line bg-white px-3.5 py-1.5 text-[13.5px] font-medium transition-colors hover:bg-gray-50">
               Sign in
             </a>
-            <a href="#" className="rounded bg-ink px-3.5 py-1.5 text-[13.5px] font-medium text-white transition-colors hover:bg-gray-800">
+            <a href="/contact/sales" className="rounded bg-ink px-3.5 py-1.5 text-[13.5px] font-medium text-white transition-colors hover:bg-gray-800">
               Contact sales
             </a>
           </div>

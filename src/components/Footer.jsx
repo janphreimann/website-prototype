@@ -1,19 +1,38 @@
 const COLUMNS = [
   {
     title: 'Explore',
-    links: ['Startups', 'Enterprise', 'Switch', 'OSS program', 'Learn'],
+    links: [
+      { label: 'Startups', href: '/startups' },
+      { label: 'Enterprise', href: '/enterprise' },
+      { label: 'Switch', href: '/switch' },
+      'OSS program', 'Learn',
+    ],
   },
   {
     title: 'Resources',
-    links: ['Customers', 'Blog', 'Pricing', 'Guides', 'Feature requests', 'Library', 'Wiki', 'Agent score'],
+    links: [
+      { label: 'Customers', href: '/customers' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Pricing', href: '/pricing' },
+      'Guides', 'Feature requests', 'Library', 'Wiki',
+      { label: 'Agent score', href: '/score' },
+    ],
   },
   {
     title: 'Documentation',
-    links: ['Getting started', 'API reference', 'Components', 'Changelog'],
+    links: [
+      { label: 'Getting started', href: '/docs' },
+      { label: 'API reference', href: '/docs/api/introduction' },
+      { label: 'Components', href: '/docs/components' },
+      { label: 'Changelog', href: '/docs/guides' },
+    ],
   },
   {
     title: 'Company',
-    links: ['Careers', 'Events', 'Wall of love'],
+    links: [
+      { label: 'Careers', href: '/careers' },
+      'Events', 'Wall of love',
+    ],
   },
   {
     title: 'Legal',
@@ -57,13 +76,17 @@ export default function Footer() {
             <div key={col.title}>
               <div className="mb-5 text-[13.5px] text-gray-400">{col.title}</div>
               <ul className="space-y-3.5">
-                {col.links.map((l) => (
-                  <li key={l}>
-                    <a href="#" className="text-[14px] text-gray-800 transition-colors hover:text-gray-500">
-                      {l}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map((l) => {
+                  const label = typeof l === 'string' ? l : l.label
+                  const href = typeof l === 'string' ? '#' : l.href
+                  return (
+                    <li key={label}>
+                      <a href={href} className="text-[14px] text-gray-800 transition-colors hover:text-gray-500">
+                        {label}
+                      </a>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           ))}

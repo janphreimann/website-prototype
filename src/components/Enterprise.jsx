@@ -57,7 +57,7 @@ export default function Enterprise() {
         >
           <ArrowButton dir="left" onClick={() => go(active - 1)} disabled={active === 0} />
           <ArrowButton dir="right" onClick={() => go(active + 1)} disabled={active === STORIES.length - 1} />
-          <BlackButton>For enterprises</BlackButton>
+          <BlackButton href="/enterprise">For enterprises</BlackButton>
         </SectionHeading>
 
         {/* one card per view; the following card peeks past the frame line.

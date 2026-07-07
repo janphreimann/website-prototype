@@ -59,7 +59,7 @@ export default function Startups() {
         >
           <ArrowButton dir="left" onClick={() => scrollBy(-1)} />
           <ArrowButton dir="right" onClick={() => scrollBy(1)} />
-          <BlackButton>For startups</BlackButton>
+          <BlackButton href="/startups">For startups</BlackButton>
         </SectionHeading>
       </div>
 

@@ -13,10 +13,10 @@ export default function SectionHeading({ line1, line2, children }) {
   )
 }
 
-export function BlackButton({ children }) {
+export function BlackButton({ href = '#', children }) {
   return (
     <a
-      href="#"
+      href={href}
       className="inline-flex items-center gap-2 rounded bg-ink px-4 py-2.5 text-[13.5px] font-medium text-white transition-colors hover:bg-gray-800"
     >
       {children}

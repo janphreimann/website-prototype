@@ -20,7 +20,7 @@ export default function LogoWall() {
             companies building for agents.
           </h2>
           <a
-            href="#"
+            href="/customers"
             className="mt-10 inline-flex w-fit items-center gap-2 rounded bg-ink px-4 py-2.5 text-[13.5px] font-medium text-white transition-colors hover:bg-gray-800"
           >
             Read customer stories
