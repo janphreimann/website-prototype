@@ -7,6 +7,7 @@ import StartupsPage from './pages/StartupsPage.jsx'
 import PricingPage from './pages/PricingPage.jsx'
 import CareersPage from './pages/CareersPage.jsx'
 import BlogPage from './pages/BlogPage.jsx'
+import BlogPostPage from './pages/BlogPostPage.jsx'
 import SwitchPage from './pages/SwitchPage.jsx'
 import ScorePage from './pages/ScorePage.jsx'
 import CustomersPage from './pages/CustomersPage.jsx'
@@ -22,6 +23,7 @@ else if (path === '/startups') Page = StartupsPage
 else if (path === '/pricing') Page = PricingPage
 else if (path === '/careers') Page = CareersPage
 else if (path === '/blog') Page = BlogPage
+else if (path.startsWith('/blog/')) Page = BlogPostPage
 else if (path === '/switch') Page = SwitchPage
 else if (path === '/score') Page = ScorePage
 else if (path === '/customers') Page = CustomersPage

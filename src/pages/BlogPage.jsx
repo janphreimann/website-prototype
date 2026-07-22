@@ -234,10 +234,14 @@ const POSTS = [
   },
 ]
 
+function slugify(title) {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+
 /* ---------- sections ---------- */
 function FeaturedPost() {
   return (
-    <a href="#" className="group grid overflow-hidden rounded-xl border border-line md:grid-cols-2">
+    <a href={`/blog/${slugify(FEATURED.title)}`} className="group grid overflow-hidden rounded-xl border border-line md:grid-cols-2">
       <FeaturedMock />
       <div className="flex flex-col justify-center p-8 lg:p-12">
         <div className="flex items-center gap-2 text-[13px]">
@@ -289,7 +293,7 @@ function PostGrid({ active }) {
   return (
     <div className="mt-10 grid gap-x-5 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
       {posts.map((p) => (
-        <a key={p.title} href="#" className="group">
+        <a key={p.title} href={`/blog/${slugify(p.title)}`} className="group">
           <div className="h-[220px] overflow-hidden rounded-xl border border-line">{p.mock}</div>
           <div className="mt-4 flex items-center gap-2 text-[13px]">
             <span className="rounded border border-line bg-white px-2 py-0.5 font-medium text-ink">{p.tag}</span>

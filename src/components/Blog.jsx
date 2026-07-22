@@ -82,6 +82,10 @@ const POSTS = [
   },
 ]
 
+function slugify(title) {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+}
+
 export default function Blog() {
   return (
     <section className="border-t border-line bg-white py-24">
@@ -92,7 +96,7 @@ export default function Blog() {
 
         <div className="grid gap-5 md:grid-cols-3">
           {POSTS.map((p) => (
-            <a key={p.tag} href="#" className="group">
+            <a key={p.tag} href={`/blog/${slugify(p.title)}`} className="group">
               <div className="h-[280px] overflow-hidden rounded-xl border border-line">
                 {p.mock}
               </div>
